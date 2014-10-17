@@ -3,8 +3,8 @@ Cook Book for Getting and Cleaning Data Course Project
 
 ### Variables names for the data set
 There are 66 variables
-The 1st 33 variables are mean() related
-The 2nd 33 variable are std() related
+* The 1st 33 variables are the measurement of mean related
+* The 2nd 33 variables are the measurements of standard deviation related
 
 1. tBodyAcc-mean()-X           
 2. tBodyAcc-mean()-Y           
