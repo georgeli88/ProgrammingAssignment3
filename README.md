@@ -14,28 +14,39 @@ You should create one R script called run_analysis.R that does the following.
 5.From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
 
 ## How run_analysis.R script works 
-1. Assume the following 3 data files are in the current wokring directory
+1. Assume the following 3 data files are in the current working directory
 	a. "X_test.txt"
 	b. "X_train.txt"
 	c. "features.txt"
 2. Open R Studio
-3. Use setwd("Current_Working_Directory") to set the working directory
+3. Use setwd("Current_Working_Directory") to set to the working directory
 4. Run the following command
 	a. source("run_analysis.R")
 	b. run_analysis()
 
-## What are the design of the script
+## What is the design of the script
 1. Read the test data "X_test.txt" into a test data set called "testdata"
+	a. There are 2947 obs. of 561 variables.
 2. Read the train data "X_train.txt" into a train data set called "traindata"
+	a. There are 7352 obs. of 561 variables.
 3. Use rbind() to merge the train data set and the test data set to create one data set called "data"
+	a. The merged data set has 10299 obs of 561 variables
 4. Read "features.txt" to extract only the measurements of mean for each measurement
+	a. There are 33 feature variables containing "mean()" from the 561 variables 
 5. Extract only the "mean" data from the merged "data" set into a new data set called "meandata"
-6. Rename the column names in "meandata" with the "mean" feature names
+6. Rename the column names in "meandata" with the feature names containing "mean()"
+	a. The "meandata" has 10299 obs of 33 variables 
 7. Read "features.txt" to extract only the measurements of standard deviation for each measurement
+	a. There are 33 feature variables containing "std()" from the 561 variables 
 8. Extract only the "std" data from the merged "data" set into a new data set called "stddata"
-9. Rename the column names in "stddata" with the "std" feature names
-10. Use cbind() to combine the mean-only data set "meandata" with the standard-deviation-only data set "stddata" and create a new data set called "mergedmeastddata" 
+9. Rename the column names in "stddata" with the feature names containing std()"
+	a. The "stddata" has 10299 obs of 33 variables 
+10. Use cbind() to combine the mean-only measurment data set "meandata" with the standard-deviation-only measurement data set "stddata" and create a new data set called "mergedmeastddata" 
+	a. The "mergedmeastddata" has 10299 obs of 66 variables.
 11. Use sapply() to create a 2nd data set "averagedata" with the average of each variable for each activity and each subject
+	a. The "averagedata"has 66 values for 66 variables
+	b. The first 33 values are the measurements of mean related
+	c. The second 33 valles are the measurements of standard deviation related
 12. When needed, use write.table() with row.names=FALSE to create a txt file "MergedMeanAndStdData.txt"
 
 
